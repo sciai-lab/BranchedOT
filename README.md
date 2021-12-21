@@ -54,6 +54,10 @@ The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/
 <br>
 
 <b>4) Brute-force topology optimization  </b>
+
+<img src="https://user-images.githubusercontent.com/73332106/146962214-19121365-94a5-4c46-9b23-024c7ea46b63.png" 
+     width="600"  />
+
 The number of possible tree topologies for BOT grow super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown below. For larger problems all brute-force approahes become infeasible.    <br>
 The respective code together with more examples can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/brute-force%20solver).
 
@@ -66,9 +70,9 @@ The respective code together with more examples can be found [here](https://gith
 
 
 In the thesis different fast heuristics for the topology optimization were presented. <br>
-Code and results for all heuristics the different heuristics can be found in:
-[Incremental growth heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/incremental_growth.py)
-[Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py)
-[Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py)
+Code and results for all heuristics the different heuristics can be found in:<br>
+[Incremental growth heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/incremental_growth.py). <br>
+[Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py). <br>
+[Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py). <br>
 
 
