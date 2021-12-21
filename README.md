@@ -1,1 +1,51 @@
-# BranchedOT
+# Branched Optimal Transport (BOT)
+
+This repository contains the code supplementary to my MSc project. <br>
+Here, we provide code for the following algorithms and experiments:
+1) the numerical scheme to systematically check inequality Γ<sub>2</sub>,
+2) the geometric construction algorithm for solutions with optimal geometry,
+3) the numerical BP optimization routine,
+4) the Brute-force solver for topology optimiztation 
+5) the different heuristic for the topology optimization. 
+
+BOT is an NP-hard optimization problem. Given a set of sources (below in red) and sinks (below in blue), the objective is to optimize a transportation network with respect to the following cost function:
+
+where α is a parameter between 0 and 1, which determines the amount of branching we observe in optimal solutions. For α=1, we have no branching (Optimal Transport). With smaller α the amount of branching increases. The case of α=0 corresponds to the Euclidean Steiner Tree Problem. The BOT optimization is split into a convex geometric optimization of the branching point positions and a combinatorial optimization of the topology.     
+
+
+<b>1) Inequality check </b>
+
+(img)
+By proving the inequality Γ<sub>2</sub>, one can show that degree-4 branchings in a BOT solution are never globally optimal.  
+The white region is the only region which could not be ruled out analytically and which is therefore dealt with numerically. <br>
+The code can be found in (ref).
+
+<b>2) Geometric construction of solutions with optimal geometry for a given topology  </b>
+
+(img)
+The presented geometric construction with so-called pivot points and pivot circles was generalized in the thesis to be applicable to BOT problems with multiple sources. The construction is very efficient, but works only if the optimal solution does not contain any edges contractions. The algorithm is only applicable to BOT problems in the Euclidean plane.  <br>
+The code and more examples can be found in (ref).
+
+<b>3) Numerical optimization of the BP configuration for a given topology  </b>
+
+(gif)
+This numerical optimization routine is an effective algorithm to optimize the BP configuration for a given tree topology.
+It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which adress the the combinatorial of the BOT topology (see below). <br>
+The respective code can be found in (ref). 
+
+
+<b>4) Brute-force topology optimization  </b>
+The number of possible tree topologies for BOT grow super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown below. For larger problems all brute-force approahes become infeasible.    <br>
+The respective code together with more examples can be found here.
+
+<b>5) Heuiristics for topology optimization  </b>
+(gif)
+
+In the thesis different fast heuristics for the topology optimization were presented. <br>
+Code and results for all heuristics the different heuristics can be found in:
+Incremental growth heuristic
+Simulated annealing heuristic
+Interpolating MST heuristic
+
+Using the strongest heuristic a combination of the Interpolating MST herustics and the simulated annealing, we have conducted a series of BOT experiments with varying α-value.  
+(gif)
