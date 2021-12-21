@@ -57,13 +57,13 @@ The respective code together with more examples can be found here.
 <br>
 
 <b>5) Heuiristics for topology optimization  </b>
-(gif)
+
+<img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
+     width="300"  />
+
 
 In the thesis different fast heuristics for the topology optimization were presented. <br>
 Code and results for all heuristics the different heuristics can be found in:
 Incremental growth heuristic
 Simulated annealing heuristic
 Interpolating MST heuristic
-
-Using the strongest heuristic a combination of the Interpolating MST herustics and the simulated annealing, we have conducted a series of BOT experiments with varying α-value.  
-(gif)
