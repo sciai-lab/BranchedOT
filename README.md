@@ -43,7 +43,10 @@ The code and more examples can be found in (ref).
 
 <b>3) Numerical optimization of the BP configuration for a given topology  </b>
 
-(gif)
+<img src="https://user-images.githubusercontent.com/73332106/146946443-77519606-93e7-4b88-afcb-4285c1653b8e.gif" 
+     width="400"  />
+     
+     
 This numerical optimization routine is an effective algorithm to optimize the BP configuration for a given tree topology.
 It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which adress the the combinatorial of the BOT topology (see below). <br>
 The respective code can be found in (ref). 
@@ -59,7 +62,7 @@ The respective code together with more examples can be found here.
 <b>5) Heuiristics for topology optimization  </b>
 
 <img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
-     width="300"  />
+     width="400"  />
 
 
 In the thesis different fast heuristics for the topology optimization were presented. <br>
