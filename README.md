@@ -27,7 +27,7 @@ where α is a parameter between 0 and 1, which determines the amount of branchin
 
 By proving the inequality Γ<sub>2</sub>, one can show that degree-4 branchings in a BOT solution are never globally optimal.  
 The white region is the only region which could not be ruled out analytically and which is therefore dealt with numerically. <br>
-The code can be found in (ref).
+The code can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/inequality%20check).
 
 <br>
 
@@ -37,7 +37,7 @@ The code can be found in (ref).
      width="300"  />
      
 The presented geometric construction with so-called pivot points and pivot circles was generalized in the thesis to be applicable to BOT problems with multiple sources. The construction is very efficient, but works only if the optimal solution does not contain any edges contractions. The algorithm is only applicable to BOT problems in the Euclidean plane.  <br>
-The code and more examples can be found in (ref).
+The code and more examples can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/geometric%20construction%20solver).
 
 <br>
 
@@ -49,13 +49,13 @@ The code and more examples can be found in (ref).
      
 This numerical optimization routine is an effective algorithm to optimize the BP configuration for a given tree topology.
 It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which adress the the combinatorial of the BOT topology (see below). <br>
-The respective code can be found in (ref). 
+The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/numerical%20BP%20optimization). 
 
 <br>
 
 <b>4) Brute-force topology optimization  </b>
 The number of possible tree topologies for BOT grow super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown below. For larger problems all brute-force approahes become infeasible.    <br>
-The respective code together with more examples can be found here.
+The respective code together with more examples can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/brute-force%20solver).
 
 <br>
 
@@ -67,6 +67,8 @@ The respective code together with more examples can be found here.
 
 In the thesis different fast heuristics for the topology optimization were presented. <br>
 Code and results for all heuristics the different heuristics can be found in:
-Incremental growth heuristic
-Simulated annealing heuristic
-Interpolating MST heuristic
+[Incremental growth heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/incremental_growth.py)
+[Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py)
+[Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py)
+
+
