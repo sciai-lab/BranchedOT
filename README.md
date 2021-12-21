@@ -15,8 +15,7 @@ BOT is an NP-hard optimization problem. Given a set of sources (below in red) an
 <img src="https://user-images.githubusercontent.com/73332106/146935786-2f133488-0daf-4349-9e55-79f13e1705b2.png" 
      width="400"  />
 
-
-where α is a parameter between 0 and 1, which determines the amount of branching we observe in optimal solutions. For α=1, we have no branching (Optimal Transport). With smaller α the amount of branching increases. The case of α=0 corresponds to the Euclidean Steiner Tree Problem. The BOT optimization can be split into a convex geometric optimization of the branching point positions and a combinatorial optimization of the topology.     
+where α is a parameter between 0 and 1. It determines how much more efficient it is to transport mass with nearby destinations along the same route. The mathematical reason is the subadditivity of (m<sub>2</sub> + m<sub>2</sub>)<sup>α</sup> < m<sub>1</sub><sup>α</sup> + m<sub>2</sub><sup>α</sup>. The smaller α the more branching is observed in optimal solutions. The case of α=0 corresponds to the Euclidean Steiner Tree Problem. For α=1, BOT relaxes to the efficiently solvable problem of Optimal Transport (no more branching). The BOT optimization can be split into a convex geometric optimization of the branching point positions and a combinatorial optimization of the topology.     
 
 <br>
 
