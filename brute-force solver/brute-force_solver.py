@@ -2,11 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 import pickle
-import sys
 import concurrent.futures  # for multiprocessing
 import itertools  # to repeat constant arguments in the map of multiporcessing
 import time
 from tqdm import tqdm
+import sys
 
 sys.path.append('../helper functions/')
 sys.path.append('../numerical BP optimization/')

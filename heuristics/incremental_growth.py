@@ -1,3 +1,8 @@
+import sys
+
+sys.path.append('../helper functions/')
+sys.path.append('../numerical BP optimization/')
+
 from iterative_BOT_solver import iterative_bot_solver
 from helper_fcts import *
 

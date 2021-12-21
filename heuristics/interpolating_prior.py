@@ -3,7 +3,9 @@ import networkx as nx
 import sys
 import matplotlib.pyplot as plt
 
-from OT_prior import cost_mat, constr_mat
+sys.path.append('../helper functions/')
+sys.path.append('../numerical BP optimization/')
+
 from MST_prior import get_MST
 from helper_fcts import *
 from scipy.optimize import linprog

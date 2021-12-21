@@ -1,5 +1,9 @@
 import numpy as np
 import networkx as nx
+import sys
+
+sys.path.append('../helper functions/')
+sys.path.append('../numerical BP optimization/')
 
 from iterative_BOT_solver import iterative_bot_solver
 
