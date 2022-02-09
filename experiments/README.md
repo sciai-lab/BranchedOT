@@ -1,13 +1,13 @@
 # BOT experiments
 
 <b> Required Packages: </b>
-*numpy
-*matplotlib
-*networkx
-*pickle
-*concurrent.futures  # for multiprocessing  
-*tqdm
-*POT (python Optimal transport, https://pythonot.github.io/)
++ numpy
++ matplotlib
++ networkx
++ pickle
++ concurrent.futures  # for multiprocessing  
++ tqdm
++ POT (python Optimal transport, https://pythonot.github.io/)
 
 <b> Python Files: </b>
 1) Runtime of generalized Smith solver:<br>
