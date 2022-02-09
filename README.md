@@ -26,7 +26,7 @@ where α is a parameter between 0 and 1. It determines how much more efficient i
 
 By proving the inequality Γ<sub>2</sub>, one can show that degree-4 branchings in a BOT solution are never globally optimal.  
 The white region is the only region which could not be ruled out analytically and which is therefore dealt with numerically. <br>
-The code can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/inequality%20check).
+The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/experiments/tesselate_hhf.py).
 
 <br>
 
@@ -74,4 +74,6 @@ Code and results for all heuristics the different heuristics can be found in:<br
 [Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py). <br>
 [Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py). <br>
 
+<br>
+Experiments together with readme-instructions can be found here, including:
 
