@@ -74,7 +74,7 @@ Code and results for all heuristics the different heuristics can be found in:<br
 [Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py). <br>
 [Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py). <br>
 
-Experiments together with readme-instructions can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/brute-force%20solver), including:
+Experiments together with readme-instructions can be found in the [experiments folder](https://github.com/hci-unihd/BranchedOT/tree/main/experiments), including:
 
 * Runtime of generalized Smith solver,
 * Greedy heuristic from star graph to strong topology,
