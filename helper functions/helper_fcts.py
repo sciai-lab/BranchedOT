@@ -76,8 +76,12 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
     else:
         plt.axis('equal')
     if save:
-        plt.xticks(np.linspace(0, 1, 3), fontsize=15)
-        plt.yticks(np.linspace(0, 1, 3), fontsize=15)
+        #plt.xticks(np.linspace(0, 1, 3), fontsize=15)
+        #plt.yticks(np.linspace(0, 1, 3), fontsize=15)
+        #plt.xticks(fontsize=14)
+        #plt.yticks(fontsize=14)
+        plt.xticks([])
+        plt.yticks([])
         plt.savefig(save_name + ".pdf", bbox_inches="tight")
     legend = plt.legend(fontsize=14)
     # make all markers the same size eventhough they are not in the image:
