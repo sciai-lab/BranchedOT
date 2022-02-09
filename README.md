@@ -75,7 +75,8 @@ Code and results for all heuristics the different heuristics can be found in:<br
 [Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py). <br>
 
 <br>
-Experiments together with readme-instructions can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/experiments), including: <br>
+Experiments together with readme-instructions can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/experiments), including:
+
 * Runtime of generalized Smith solver,
 * Greedy heuristic from star graph to strong topology,
 * Brute force solver and comparison with greedy heuristic,
