@@ -80,3 +80,4 @@ Experiments together with readme-instructions can be found [here](https://github
 + Greedy heuristic from star graph to strong topology,
 + Brute force solver and comparison with greedy heuristic,
 + Analysis - Iterations until convergence in greedy heuristic, plus some example solutions.
++ 
