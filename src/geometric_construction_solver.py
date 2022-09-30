@@ -529,7 +529,7 @@ def visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ex
         legend = plt.legend(fontsize=14)
         # make all markers the same size eventhough they are not in the image:
         for legend_handle in legend.legendHandles:
-            legend_handle._legmarker.set_markersize(10)
+            legend_handle.set_markersize(10)
 
     plt.axis('equal')
     if isinstance(fov, np.ndarray):

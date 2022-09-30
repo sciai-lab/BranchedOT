@@ -1,14 +1,9 @@
 import numpy as np
 import networkx as nx
-import matplotlib.pyplot as plt
-import sys
-
-sys.path.append('cpp_geometry_optimization')
 
 from general_preprocessing import preprocess_from_topo_to_flows
 from utils import visualise_BOT_solution
 from fast_geometry_optimizer import fast_optimize
-
 
 def build_A_and_b(coords_arr, num_bps, dim, edges_arr_ext, edges_arr_int, edges_arr_tot, edge_weights_arr_ext,
                   edge_weights_arr_int, edge_weights_arr_tot, sum_separator_ext, sum_separator_tot):
@@ -104,6 +99,7 @@ def check_full_tree_topo(topo, supply_arr, demand_arr):
 # now build the iterative solver for this topo:
 def iterative_geometry_solver(topo, supply_arr, demand_arr, coords_sources, coords_sinks, al,
                               relative_improvement_threshold=1e-5, min_iterations=30, max_iterations=300,
+                              use_python_implementation=False,
                               plot=False, title="", fov=None, save=False, save_name="img"):
     
     """
@@ -144,17 +140,15 @@ def iterative_geometry_solver(topo, supply_arr, demand_arr, coords_sources, coor
                                                      "and coords_sinks!"
 
     # check if topology is full tree topo, if yes use fast c++ implementation:
-    if check_full_tree_topo(topo, supply_arr, demand_arr):
+    if check_full_tree_topo(topo, supply_arr, demand_arr) and not plot and not save and not use_python_implementation:
         # use fast c++ implementation:
-        print("using cpp..")
-        itopo, cost, coords_arr, iter.value = fast_optimize(topo, supply_arr, demand_arr, coords_sources, coords_sinks,
-                                                            al,
-                                                            improv_threshold=relative_improvement_threshold)
+        # print("using cpp..")
+        topo, cost, coords_arr, iterations = fast_optimize(topo, supply_arr, demand_arr, coords_sources, coords_sinks,
+                                                            al, improv_threshold=relative_improvement_threshold)
         return cost, coords_arr
-
     else:
         # continue with python implementation
-        print("using python..")
+        # print("using python..")
         pass
 
     #use general preprocessing function to calculate the edge-flows:

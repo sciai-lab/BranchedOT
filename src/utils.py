@@ -93,19 +93,18 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
     return
 
 
-
-def eucl_dist(x,Y):
-    
+def eucl_dist(x, Y):
     """
     inputs:
-    - x: d-dimensional array 
+    - x: d-dimensional array
     - Y: Nxd-dimensional array (N must be at least 1, as in np.array([[3,3]]))
 
     output:
     N-dimensional array containing the distance of vector x to each of the vectors y
     """
-    
-    return np.sqrt(np.sum((x - Y)**2, axis=1))
+
+    return np.sqrt(np.sum((x - Y) ** 2, axis=1))
+
 
 # write function for distance between point and line segment:
 def dist_point_segments(p, a, b):
@@ -115,16 +114,17 @@ def dist_point_segments(p, a, b):
     b - array of end points of the segments (n, dim)
     """
     # project point onto straight line and check if inside line segment:
-    #print(a.shape, b.shape, p.shape)
-    #print(a.shape, b.shape, np.sum((b - a) * (p[None,:] - a), axis=1).shape, np.clip(eucl_dist(a, b) ** 2, 1e-8, None).shape)
+    # print(a.shape, b.shape, p.shape)
+    # print(a.shape, b.shape, np.sum((b - a) * (p[None,:] - a), axis=1).shape, np.clip(eucl_dist(a, b) ** 2, 1e-8, None).shape)
     lam = np.sum((b - a) * (p - a), axis=1) / np.clip(eucl_dist(a, b) ** 2, 1e-8, None)
-    p_proj = a + lam[:,None] * (b - a)
+    p_proj = a + lam[:, None] * (b - a)
 
     p_proj[lam <= 0] = a[lam <= 0]
     p_proj[lam >= 1] = b[lam >= 1]
 
     dist_arr = np.sqrt(np.sum((p - p_proj) ** 2, axis=1))
     return dist_arr
+
 
 def dist_segment_points(p, a, b):
     """

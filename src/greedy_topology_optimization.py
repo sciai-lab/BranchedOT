@@ -1,49 +1,8 @@
 import numpy as np
 import networkx as nx
-import sys
 
-sys.path.append('/')
-sys.path.append('../numerical BP optimization/')
-
+from utils import dist_point_segments
 from iterative_geometry_solver import iterative_geometry_solver
-
-# write function for distance between point and line segment:
-def dist_point_segments(p, a, b):
-    """
-    p - point to project
-    a - array of starting points of the segments
-    b - array of end points of the segments
-    """
-    # project point onto straight line and check if inside line segment:
-    if len(a.shape) == 1:
-        lam = (b - a) @ (p - a) / np.clip(eucl_dist(a, b) ** 2, 1e-7, None)
-        p_proj = a + lam * (b - a)
-    elif len(a.shape) == 2:
-        lam = np.sum((b - a) * (p - a), axis=1) / np.clip(eucl_dist(a, b) ** 2, 1e-7, None)
-        p_proj = a + np.outer(lam, np.array([1, 1])) * (b - a)
-    else:
-        print("dimension error in dist to segm.")
-    # print("lam=", lam)
-
-    p_proj[lam <= 0] = a[lam <= 0]
-    p_proj[lam >= 1] = b[lam >= 1]
-
-    # print("proj=", p_proj)
-    dist_arr = eucl_dist(p, p_proj)
-    if type(dist_arr) != np.ndarray:
-        dist_arr = np.array([dist_arr])
-    return dist_arr
-
-def eucl_dist(x, Y):
-    dim_x = len(x)
-    if len(x.shape) > 1:
-        dim_x = x.shape[1]
-    if Y.shape == (dim_x,):
-        return np.sqrt(np.sum((Y - x) ** 2, axis=0))
-    elif Y.shape[1] == dim_x:
-        return np.sqrt(np.sum((Y - x) ** 2, axis=1))
-    else:
-        print("dim error")
 
 def kernel(dist_arr):
     p = np.exp(-dist_arr**2/np.min(dist_arr)**2)
@@ -80,7 +39,7 @@ def monte_carlo_step(topo, sample_edge_list, cost, coords_arr, bot_problem_dict,
     demand_arr = bot_problem_dict["demand_arr"]
     dim = len(coords_sources[0])
 
-    assert dim == 2, "so far this works only in 2D."
+    # assert dim == 2, "so far this works only in 2D."
 
     # randomly sample an edge which is cut:
     edge = sample_edge_list[np.random.choice(np.arange(len(sample_edge_list)))]
@@ -149,7 +108,7 @@ def monte_carlo_step(topo, sample_edge_list, cost, coords_arr, bot_problem_dict,
 
     # randomly sample a close edge in the other component:
     connector_coords = coords_arr[connector]
-    dist_child_edges = dist_point_segments(connector_coords, edges_arr[:, :2], edges_arr[:, 2:])
+    dist_child_edges = dist_child_edges = dist_point_segments(connector_coords, edges_arr[:, :dim], edges_arr[:, dim:])
     dist_propabilities = kernel(dist_child_edges)
 
     # else, continue by choosing an edge:
