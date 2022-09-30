@@ -1,16 +1,17 @@
 import numpy as np
 import networkx as nx
-import matplotlib.pyplot as plt
 import sys
 import concurrent.futures  # for multiprocessing
 import itertools  # to repeat constant arguments in the map of multiporcessing
 import pickle
 
-sys.path.append('../helper functions/')
+sys.path.append('../src/')
+sys.path.append('../numerical BP optimization/')
 
-from mc_update import monte_carlo_step
+
+from src.greedy_topology_optimization import monte_carlo_step
 from helper_fcts import generate_random_bot_problem
-from iterative_BOT_solver import iterative_bot_solver
+from src.iterative_geometry_solver import iterative_geometry_solver
 
 def wrapper_fct_for_multithreading(num_terminals, seed_list):
     T = 0  # zero temperature MC
@@ -34,10 +35,10 @@ def wrapper_fct_for_multithreading(num_terminals, seed_list):
         for node in range(len(supply_arr) + len(demand_arr)):
             topo.add_edge(-1, node)
 
-        cost, coords_iter = iterative_bot_solver(topo, supply_arr, demand_arr, coords_sources, coords_sinks, al,
-                                                 relative_improvement_threshold=1e-6, min_iterations=-1,
-                                                 max_iterations=1000,
-                                                 plot=False, title="", fov=None, save=False, save_name="img")
+        cost, coords_iter = iterative_geometry_solver(topo, supply_arr, demand_arr, coords_sources, coords_sinks, al,
+                                                      relative_improvement_threshold=1e-6, min_iterations=-1,
+                                                      max_iterations=1000,
+                                                      plot=False, title="", fov=None, save=False, save_name="img")
 
         # MC iterations:
         iterations_till_full = 0
@@ -100,7 +101,7 @@ if __name__ == '__main__':
 
     #print(result_list)
 
-    # store the results in a pickle file:
+    # store the output_files in a pickle file:
     pkl_file_path = f"MC_star_probs{num_problems}_size{num_terminals}_new.pkl"
     output = open(pkl_file_path, 'wb')
     pickle.dump(result_list, output)

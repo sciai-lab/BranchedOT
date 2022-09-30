@@ -1,11 +1,11 @@
 # Branched Optimal Transport (BOT)
 
-This repository contains the code supplementary to my MSc project. <br>
+This repository contains the code supplementary to the NeurIPS submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
 Here, we provide code for the following algorithms and experiments:
 1) the numerical scheme to systematically check inequality Γ<sub>2</sub>,
 2) the geometric construction algorithm for solutions with optimal geometry,
 3) the numerical BP optimization routine,
-4) the Brute-force solver for topology optimiztation 
+4) the Brute-force solver for topology optimization 
 5) the different heuristic for the topology optimization. 
 
 <br>

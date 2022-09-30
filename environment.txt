@@ -1,0 +1,1 @@
+conda create -n branchedOT -c conda-forge numpy matplotlib jupyter jupyterlab networkx matplotlib pot tqdm
