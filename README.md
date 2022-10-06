@@ -8,6 +8,8 @@ Here, we provide code for the following algorithms and experiments:
 4) the Brute-force solver for topology optimization 
 5) the heuristic for the topology optimization. 
 
+For instructions on setting up an anaconda environment see [environment.txt](https://github.com/hci-unihd/BranchedOT/blob/main/environment.txt).
+
 <br>
 
 BOT is an NP-hard optimization problem. Given a set of sources (below in red) and sinks (below in blue), the objective is to optimize a transportation network with respect to the following cost function:
