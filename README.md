@@ -3,7 +3,7 @@
 <img src="https://user-images.githubusercontent.com/73332106/194321586-ff2cfaea-abe6-4f1e-ba29-88e74c490d84.png" 
      width="800"  />
 
-This repository contains the code supplementary to the NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
+This repository contains the code supplementary to the accepted NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
 
 Here, we provide code for the following algorithms and experiments:
 1) the numerical scheme to systematically check inequality Γ<sub>2</sub> (Sect. E.1.4),
