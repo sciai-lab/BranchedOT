@@ -6,11 +6,11 @@
 This repository contains the code supplementary to the NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
 
 Here, we provide code for the following algorithms and experiments:
-1) the numerical scheme to systematically check inequality Γ<sub>2</sub>,
-2) the geometric construction algorithm for solutions with optimal geometry,
-3) the numerical BP optimization routine,
-4) the Brute-force solver for topology optimization 
-5) the heuristic for the topology optimization. 
+1) the numerical scheme to systematically check inequality Γ<sub>2</sub> (Sect. E.1.4),
+2) the geometric construction algorithm for solutions with optimal geometry (Sect. 3.2),
+3) the numerical BP optimization routine (Sect. 6.1),
+4) the Brute-force solver for topology optimization (Sect. 6.2), 
+5) the heuristic for the topology optimization (Sect. 6.2). 
 
 For instructions on setting up an anaconda environment see [environment.txt](https://github.com/hci-unihd/BranchedOT/blob/main/environment.txt).
 
