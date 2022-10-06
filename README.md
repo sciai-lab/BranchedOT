@@ -1,12 +1,12 @@
 # Branched Optimal Transport (BOT)
 
-This repository contains the code supplementary to the NeurIPS submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
+This repository contains the code supplementary to the NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
 Here, we provide code for the following algorithms and experiments:
 1) the numerical scheme to systematically check inequality Γ<sub>2</sub>,
 2) the geometric construction algorithm for solutions with optimal geometry,
 3) the numerical BP optimization routine,
 4) the Brute-force solver for topology optimization 
-5) the different heuristic for the topology optimization. 
+5) the heuristic for the topology optimization. 
 
 <br>
 
@@ -26,7 +26,7 @@ where α is a parameter between 0 and 1. It determines how much more efficient i
 
 By proving the inequality Γ<sub>2</sub>, one can show that degree-4 branchings in a BOT solution are never globally optimal.  
 The white region is the only region which could not be ruled out analytically and which is therefore dealt with numerically. <br>
-The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/experiments/tesselate_hhf.py).
+The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/experiments/exp_numerical_check_hhf_inequality.py).
 
 <br>
 
@@ -36,7 +36,7 @@ The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/e
      width="300"  />
      
 The presented geometric construction with so-called pivot points and pivot circles was generalized in the thesis to be applicable to BOT problems with multiple sources. The construction is very efficient, but works only if the optimal solution does not contain any edges contractions. The algorithm is only applicable to BOT problems in the Euclidean plane.  <br>
-The code and more examples can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/geometric%20construction%20solver).
+More examples can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Experiment%20-%20Geometric%20construction%20solver.ipynb).
 
 <br>
 
@@ -47,8 +47,10 @@ The code and more examples can be found [here](https://github.com/hci-unihd/Bran
      
      
 This numerical optimization routine is an effective algorithm to optimize the BP configuration for a given tree topology.
-It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which adress the the combinatorial of the BOT topology (see below). <br>
-The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/numerical%20BP%20optimization). 
+It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which address the the combinatorial of the BOT topology (see below). <br>
+The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/src/iterative_geometry_solver.py).
+In `notebooks` please find the [runtime analysis](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Experiment%20-%20Geometry%20optimization%20runtime.ipynb),
+and the [scaling analysis](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Evaluation%20-%20Geometry%20optimization%20scaling.ipynb).
 
 <br>
 
@@ -58,25 +60,16 @@ The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/
      width="600"  />
 
 The number of possible tree topologies for BOT grow super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown below. For larger problems all brute-force approahes become infeasible.    <br>
-The respective code together with more examples can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/brute-force%20solver).
+More ground truth examples from brute-force search can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/results/brute%20forced%20examples).
 
 <br>
 
-<b>5) Heuiristics for topology optimization  </b>
+<b>5) Heuristics for topology optimization  </b>
 
 <img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
      width="400"  />
 
-
-In the thesis different fast heuristics for the topology optimization were presented. <br>
-Code and results for all heuristics the different heuristics can be found in:<br>
-[Incremental growth heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/incremental_growth.py). <br>
-[Simulated annealing heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/MC_star_baseline.py). <br>
-[Interpolating MST heuristic](https://github.com/hci-unihd/BranchedOT/blob/main/heuristics/angular_stress_heuristic.py). <br>
-
-Experiments together with readme-instructions can be found in the [experiments folder](https://github.com/hci-unihd/BranchedOT/tree/main/experiments), including:
-
-* Runtime of generalized Smith solver,
-* Greedy heuristic from star graph to strong topology,
-* Brute force solver and comparison with greedy heuristic,
-* Analysis - Iterations until convergence in greedy heuristic, plus some example solutions.
+In `notebooks` please find the [comparison of the greedy heuristic to brute-force solutions](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Evaluation%20-%20Brute-Force%20vs.%20Heuristic.ipynb), 
+[number of iterations analysis](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Evaluation%20-%20Greedy%20topology%20optimization.ipynb), 
+[influence of the kernel width](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Evaluation%20-%20Kernelwidth%20in%20topology%20optimization.ipynb) and 
+a [topology optimization step by step](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Experiment%20-%20Topology%20optimization%20step%20by%20step.ipynb).

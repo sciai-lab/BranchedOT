@@ -71,9 +71,9 @@ def divide_cuboid(low_arr, high_arr, index):
     return low_corners_arr, high_corners_arr
 
 if __name__ == '__main__':
-    a_up = np.float32(input("a_up = ? [e.g. 0.999]"))
-    m1_low = np.float32(input("m1_low = [e.g. 0.001]"))
-    threshold = np.float32(input("threshold = [e.g. 0.0001]"))
+    a_up = np.float32(input("a_up = ? upper limit of alpha [e.g. 0.999]"))
+    m1_low = np.float32(input("m1_low = ? lower limit of m1 [e.g. 0.001]"))
+    threshold = np.float32(input("threshold = ? for accepting the ineq. to be positive [e.g. 0.0001]"))
 
     # start test within the following bounds
     a_low = 0.5
