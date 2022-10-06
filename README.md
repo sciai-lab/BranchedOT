@@ -1,6 +1,7 @@
 # Branched Optimal Transport (BOT)
 
 This repository contains the code supplementary to the NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
+
 Here, we provide code for the following algorithms and experiments:
 1) the numerical scheme to systematically check inequality Γ<sub>2</sub>,
 2) the geometric construction algorithm for solutions with optimal geometry,
