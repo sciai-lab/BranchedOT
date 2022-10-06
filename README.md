@@ -16,6 +16,12 @@ For instructions on setting up an anaconda environment see [environment.txt](htt
 
 <br>
 
+<img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
+     width="400"  />
+     
+
+<b>Introduction to BOT </b> 
+
 BOT is an NP-hard optimization problem. Given a set of sources (below in red) and sinks (below in blue), the objective is to optimize a transportation network with respect to the following cost function:
 
 <img src="https://user-images.githubusercontent.com/73332106/146935786-2f133488-0daf-4349-9e55-79f13e1705b2.png" 
@@ -31,7 +37,7 @@ where α is a parameter between 0 and 1. It determines how much more efficient i
      width="300"  />
 
 By proving the inequality Γ<sub>2</sub>, one can show that degree-4 branchings in a BOT solution are never globally optimal.  
-The white region is the only region which could not be ruled out analytically and which is therefore dealt with numerically. <br>
+The white region is the only region which could not be ruled out analytically and which is therefore handled numerically. <br>
 The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/experiments/exp_numerical_check_hhf_inequality.py).
 
 <br>
@@ -41,7 +47,7 @@ The code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/e
 <img src="https://user-images.githubusercontent.com/73332106/146936548-ae11b15b-7a7c-4821-93d1-a26956177b4c.png" 
      width="300"  />
      
-The presented geometric construction with so-called pivot points and pivot circles was generalized in the thesis to be applicable to BOT problems with multiple sources. The construction is very efficient, but works only if the optimal solution does not contain any edges contractions. The algorithm is only applicable to BOT problems in the Euclidean plane.  <br>
+The presented geometric construction with so-called pivot points and pivot circles was generalized in the paper to be applicable to BOT problems with multiple sources. The construction is very efficient, but works only if the optimal solution does not contain any edges contractions. The algorithm is only applicable to BOT problems in the Euclidean plane.  <br>
 More examples can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Experiment%20-%20Geometric%20construction%20solver.ipynb).
 
 <br>
@@ -53,7 +59,7 @@ More examples can be found [here](https://github.com/hci-unihd/BranchedOT/blob/m
      
      
 This numerical optimization routine is an effective algorithm to optimize the BP configuration for a given tree topology.
-It is applicable in two- and higher-dimensional Euclidean space for all tree topologies. It is the basis of all developed heuristics which address the the combinatorial of the BOT topology (see below). <br>
+It is applicable in two- and higher-dimensional Euclidean spaces for all tree topologies. It is the basis of the heuristic which addresses the combinatorics of the BOT topology (see below). <br>
 The respective code can be found [here](https://github.com/hci-unihd/BranchedOT/blob/main/src/iterative_geometry_solver.py).
 In `notebooks` please find the [runtime analysis](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Experiment%20-%20Geometry%20optimization%20runtime.ipynb),
 and the [scaling analysis](https://github.com/hci-unihd/BranchedOT/blob/main/notebooks/Evaluation%20-%20Geometry%20optimization%20scaling.ipynb).
@@ -65,12 +71,12 @@ and the [scaling analysis](https://github.com/hci-unihd/BranchedOT/blob/main/not
 <img src="https://user-images.githubusercontent.com/73332106/146962214-19121365-94a5-4c46-9b23-024c7ea46b63.png" 
      width="600"  />
 
-The number of possible tree topologies for BOT grow super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown below. For larger problems all brute-force approahes become infeasible.    <br>
+The number of possible tree topologies for BOT grows super-exponentially with the problem size. For 9 terminals, there exist already 135135 distinct topologies. Trying them all out is computationally very costly. A ground truth example and the histogram of all costs of the different topologies is shown above. For larger problems all brute-force approaches become infeasible.    <br>
 More ground truth examples from brute-force search can be found [here](https://github.com/hci-unihd/BranchedOT/tree/main/results/brute%20forced%20examples).
 
 <br>
 
-<b>5) Heuristics for topology optimization  </b>
+<b>5) Heuristic for topology optimization  </b>
 
 <img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
      width="400"  />
