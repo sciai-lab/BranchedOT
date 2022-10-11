@@ -82,7 +82,8 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
         #plt.yticks(fontsize=14)
         plt.xticks([])
         plt.yticks([])
-        plt.savefig(save_name + ".pdf", bbox_inches="tight")
+        # plt.savefig(save_name + ".pdf", bbox_inches="tight")
+        plt.savefig(save_name + ".png", dpi=300, bbox_inches="tight")
     legend = plt.legend(fontsize=14)
     # make all markers the same size eventhough they are not in the image:
     for legend_handle in legend.legendHandles:
