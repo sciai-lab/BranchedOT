@@ -525,7 +525,7 @@ def visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ex
             circle1 = plt.Circle((O1, O2), r, fill=False, color="gray")
             plt.gcf().gca().add_artist(circle1)
 
-    if len(branching_point_dict) != 0 and not save:
+    if len(branching_point_dict) != 0:
         legend = plt.legend(fontsize=14)
         # make all markers the same size eventhough they are not in the image:
         for legend_handle in legend.legendHandles:
@@ -536,13 +536,14 @@ def visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ex
         if fov.shape != (2, 2): print("Error. invalid fov.")
         plt.xlim(fov[0, 0], fov[0, 1])
         plt.ylim(fov[1, 0], fov[1, 1])
-    if save and iteration == None:
+    if save and iteration is not None:
         a = coords_sources[0]
         b = branching_point_dict[-1].coords
         plt.plot([a[0],b[0]],[a[1],b[1]], color="black", linewidth=linescale * supply_arr[0] + 1, zorder=-1)
         plt.savefig("img.pdf", bbox_inches="tight")
         plt.show()
-    if debug_plot: plt.show()
+    if debug_plot:
+        plt.show()
     return
 
 

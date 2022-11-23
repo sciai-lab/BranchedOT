@@ -75,6 +75,12 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
         plt.ylim(fov[1, 0], fov[1, 1])
     else:
         plt.axis('equal')
+    legend = plt.legend(fontsize=14)
+    # make all markers the same size eventhough they are not in the image:
+    for legend_handle in legend.legendHandles:
+        # print(dir(legend_handle))
+        # legend_handle._legmarker.set_markersize(10)
+        legend_handle.set_markersize(10)
     if save:
         #plt.xticks(np.linspace(0, 1, 3), fontsize=15)
         #plt.yticks(np.linspace(0, 1, 3), fontsize=15)
@@ -82,14 +88,8 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
         #plt.yticks(fontsize=14)
         plt.xticks([])
         plt.yticks([])
-        # plt.savefig(save_name + ".pdf", bbox_inches="tight")
-        plt.savefig(save_name + ".png", dpi=300, bbox_inches="tight")
-    legend = plt.legend(fontsize=14)
-    # make all markers the same size eventhough they are not in the image:
-    for legend_handle in legend.legendHandles:
-        # print(dir(legend_handle))
-        # legend_handle._legmarker.set_markersize(10)
-        legend_handle.set_markersize(10)
+        plt.savefig(save_name + ".pdf", bbox_inches="tight")
+        # plt.savefig(save_name + ".png", dpi=300, bbox_inches="tight")
     plt.show()
     return
 
