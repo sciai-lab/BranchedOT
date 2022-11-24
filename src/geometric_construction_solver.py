@@ -439,18 +439,18 @@ def calc_total_cost(al, branching_point_dict, ext_coords, list_ext_label):
 
 
 def visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ext_coords, list_ext_label, supply_arr,
-                          demand_arr, supply_arr_full, demand_arr_full, fov, save, labelled, debug_plot,
+                          demand_arr, fov, save, labelled, debug_plot,
                           iteration=None):
     # fov can be customized or can be None, then the whole thing is plotted.
-    if iteration == None:
+    if iteration is None:
         fig = plt.figure(-1, figsize=(8, 8))
         #plt.title("final solution")
     else:
         fig = plt.figure(figsize=(8, 8))
         plt.title("debug plot, iter=" + str(iteration))
 
-    linescale = 15 / sum(supply_arr_full)  # defines thickness of edges relative to total flow
-    markerscale = 25 / sum(supply_arr_full)
+    linescale = 15 / sum(supply_arr)  # defines thickness of edges relative to total flow
+    markerscale = 25 / sum(supply_arr)
 
     # plot sources and sinks:
     sources_labelled = False
@@ -526,17 +526,19 @@ def visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ex
             plt.gcf().gca().add_artist(circle1)
 
     if len(branching_point_dict) != 0:
-        legend = plt.legend(fontsize=14)
+        legend = plt.legend(fontsize=12)
         # make all markers the same size eventhough they are not in the image:
         for legend_handle in legend.legendHandles:
             legend_handle.set_markersize(10)
 
     plt.axis('equal')
     if isinstance(fov, np.ndarray):
-        if fov.shape != (2, 2): print("Error. invalid fov.")
+        if fov.shape != (2, 2):
+            print("Error. invalid fov.")
         plt.xlim(fov[0, 0], fov[0, 1])
         plt.ylim(fov[1, 0], fov[1, 1])
-    if save and iteration is not None:
+    print(iteration)
+    if save and iteration is None:
         a = coords_sources[0]
         b = branching_point_dict[-1].coords
         plt.plot([a[0],b[0]],[a[1],b[1]], color="black", linewidth=linescale * supply_arr[0] + 1, zorder=-1)
@@ -588,7 +590,7 @@ def geometric_bot_solver(topo, supply_arr, demand_arr, coords_sources, coords_si
         # plot the trivial solution:
         if debug_plot or plot:
             visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ext_coords,
-                                  list_ext_label, supply_arr, demand_arr, supply_arr_full, demand_arr_full,
+                                  list_ext_label, supply_arr, demand_arr,
                                   fov=fov, save=save, labelled=False, debug_plot=debug_plot, iteration=None)
 
         return branching_point_dict, cost
@@ -705,7 +707,7 @@ def geometric_bot_solver(topo, supply_arr, demand_arr, coords_sources, coords_si
     # plot the resulting BOT solution:
     if plot:
         visualise_current_sol(branching_point_dict, coords_sources, coords_sinks, ext_coords, list_ext_label,
-                              supply_arr, demand_arr, supply_arr, demand_arr, fov=fov, save=save, labelled=False,
+                              supply_arr, demand_arr, fov=fov, save=save, labelled=False,
                               debug_plot=debug_plot, iteration=None)
 
         # calculate cost:
