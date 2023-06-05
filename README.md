@@ -3,7 +3,7 @@
 <img src="https://user-images.githubusercontent.com/73332106/194321586-ff2cfaea-abe6-4f1e-ba29-88e74c490d84.png" 
      width="800"  />
 
-This repository contains the code supplementary to the accepted NeurIPS 2022 submission *Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources*. <br>
+This repository contains the code supplementary to the accepted NeurIPS 2022 paper [Theory and Approximate Solvers for Branched Optimal Transport with Multiple Sources](https://proceedings.neurips.cc/paper_files/paper/2022/hash/0206c1c20a18915da23df5e61966fc6a-Abstract-Conference.html). <br>
 
 Here, we provide code for the following algorithms and experiments:
 1) the numerical scheme to systematically check inequality Γ<sub>2</sub> (Sect. E.1.4),
@@ -12,8 +12,8 @@ Here, we provide code for the following algorithms and experiments:
 4) the Brute-force solver for topology optimization (Sect. 6.2), 
 5) the heuristic for the topology optimization (Sect. 6.2). 
 
-For instructions on setting up an anaconda environment see [environment.txt](https://github.com/hci-unihd/BranchedOT/blob/main/environment.txt).
-
+For instructions on setting up an anaconda environment see [environment.txt](https://github.com/hci-unihd/BranchedOT/blob/main/environment.txt).  
+To get started check out the [tutorials](https://github.com/hci-unihd/BranchedOT/tree/main/tutorials) for a step by step introduction to the repo.
 <br>
 
 <img src="https://user-images.githubusercontent.com/73332106/146940339-3d862bbd-ff07-416d-8b79-f6df33e2b69f.gif" 
