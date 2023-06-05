@@ -100,7 +100,7 @@ def check_full_tree_topo(topo, supply_arr, demand_arr):
 def iterative_geometry_solver(topo, supply_arr, demand_arr, coords_sources, coords_sinks, al,
                               relative_improvement_threshold=1e-5, min_iterations=30, max_iterations=300,
                               use_python_implementation=False,
-                              plot=False, title="", fov=None, save=False, save_name="img"):
+                              plot=False, title="", fov=None, save=False, save_name="img",figsize = (8,8)):
     
     """
     inputs:
@@ -245,6 +245,6 @@ def iterative_geometry_solver(topo, supply_arr, demand_arr, coords_sources, coor
 
     if plot and dim == 2:
         # visualise the final solution:
-        visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title=title, fov=fov, save=save, save_name=save_name)
+        visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title=title, fov=fov, save=save, save_name=save_name, figsize = figsize)
 
     return cost, coords_arr

@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img"):
+def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img", figsize = (8,8)):
     
     """
     a general function for visualising a solution.
@@ -20,7 +20,7 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
     - it produces the desired plot
     """
 
-    plt.figure(figsize=(8, 8))
+    plt.figure(figsize=figsize)
     if title != "":
         plt.title(title)
 
