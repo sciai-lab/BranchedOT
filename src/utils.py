@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img", figsize = (8,8)):
+def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img", figsize = (8,8), ms = 25, fs = 14):
     
     """
     a general function for visualising a solution.
@@ -15,7 +15,9 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
     - title: string to show as title of the plot
     - fov: field of view (2,2)-array, or None then fov is automatically chosen
     - save: boolean to determine if image should be saved with save_name as name
-
+    - figsize: size of the figure.
+    - ms: marker size, used as a numerator when defining the actual marker size of the sources and sinks
+    - fs: font size.
     output:
     - it produces the desired plot
     """
@@ -25,7 +27,7 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
         plt.title(title)
 
     linescale = 15 / sum(supply_arr)  # defines thickness of edges relative to total flow
-    markerscale = 25 / sum(supply_arr)
+    markerscale = ms / sum(supply_arr)
     list_source_idx = np.arange(len(supply_arr))
     list_sink_idx = np.arange(len(supply_arr) + len(demand_arr))
 
@@ -75,7 +77,7 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
         plt.ylim(fov[1, 0], fov[1, 1])
     else:
         plt.axis('equal')
-    legend = plt.legend(fontsize=14)
+    legend = plt.legend(fontsize=fs)
     # make all markers the same size eventhough they are not in the image:
     for legend_handle in legend.legendHandles:
         # print(dir(legend_handle))
