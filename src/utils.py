@@ -3,7 +3,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
-def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img", figsize = (8,8), ms = 25, fs = 14):
+def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", fov=None, save=False, save_name="img",
+                           figsize=(8, 8), ms=25, fs=14, subplot_ax=None):
     
     """
     a general function for visualising a solution.
@@ -21,10 +22,16 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
     output:
     - it produces the desired plot
     """
+    if subplot_ax is None:
+        fig, ax = plt.subplots()
+        fig.set_size_inches(figsize[0], figsize[1])
+    else:
+        ax = subplot_ax
 
-    plt.figure(figsize=figsize)
     if title != "":
-        plt.title(title)
+        ax.set_title(title, fontsize=fs)
+
+    fig = plt.gcf()
 
     linescale = 15 / sum(supply_arr)  # defines thickness of edges relative to total flow
     markerscale = ms / sum(supply_arr)
@@ -45,54 +52,53 @@ def visualise_BOT_solution(topo, coords_arr, supply_arr, demand_arr, title="", f
 
             flow = np.abs(topo[node][neighbour]["weight"])
             y = coords_arr[neighbour]
-            plt.plot([x[0], y[0]], [x[1], y[1]], color="black", linewidth=linescale * flow + 1, alpha=0.85)
+            ax.plot([x[0], y[0]], [x[1], y[1]], color="black", linewidth=linescale * flow + 1, alpha=0.85)
 
     # plot sources and sinks on top:
     for node in topo.nodes:
         x = coords_arr[node]
         if node in list_source_idx:
             if not sources_labelled:
-                plt.plot(x[0], x[1], marker="o", color="r", linestyle="", markersize=markerscale *
+                ax.plot(x[0], x[1], marker="o", color="r", linestyle="", markersize=markerscale *
                                                                                      supply_arr[node] + 3, alpha=0.8,
                          label="sources")
                 sources_labelled = True
             else:
-                plt.plot(x[0], x[1], marker="o", color="r", linestyle="", markersize=markerscale *
+                ax.plot(x[0], x[1], marker="o", color="r", linestyle="", markersize=markerscale *
                                                                                      supply_arr[node] + 3, alpha=0.8)
 
         elif node in list_sink_idx:
             if not sinks_labelled:
-                plt.plot(x[0], x[1], marker="o", color="b", linestyle="", markersize=markerscale *
+                ax.plot(x[0], x[1], marker="o", color="b", linestyle="", markersize=markerscale *
                                                     demand_arr[node - len(supply_arr)] + 3,alpha=0.8, label="sinks")
                 sinks_labelled = True
             else:
-                plt.plot(x[0], x[1], marker="o", color="b", linestyle="", markersize=markerscale *
+                ax.plot(x[0], x[1], marker="o", color="b", linestyle="", markersize=markerscale *
                                                     demand_arr[node - len(supply_arr)] + 3, alpha=0.8)
 
 
     if isinstance(fov, np.ndarray):
-        if fov.shape != (2, 2):
-            print("Error. invalid fov.")
-        plt.xlim(fov[0, 0], fov[0, 1])
-        plt.ylim(fov[1, 0], fov[1, 1])
+        assert fov.shape == (2, 2), "fov must be a (2,2)-array"
+        ax.set_xlim(fov[0, 0], fov[0, 1])
+        ax.set_ylim(fov[1, 0], fov[1, 1])
     else:
-        plt.axis('equal')
-    legend = plt.legend(fontsize=fs)
+        # equal aspect ratio:
+        ax.set_aspect('equal', adjustable='box')
+    legend = ax.legend(fontsize=fs)
     # make all markers the same size eventhough they are not in the image:
     for legend_handle in legend.legendHandles:
         # print(dir(legend_handle))
         # legend_handle._legmarker.set_markersize(10)
         legend_handle.set_markersize(10)
     if save:
-        #plt.xticks(np.linspace(0, 1, 3), fontsize=15)
-        #plt.yticks(np.linspace(0, 1, 3), fontsize=15)
-        #plt.xticks(fontsize=14)
-        #plt.yticks(fontsize=14)
-        plt.xticks([])
-        plt.yticks([])
-        plt.savefig(save_name + ".pdf", bbox_inches="tight")
-        # plt.savefig(save_name + ".png", dpi=300, bbox_inches="tight")
-    plt.show()
+        # remove x and y ticks:
+        ax.set_xticks([])
+        ax.set_yticks([])
+        print("Saving figure to " + save_name + ".pdf")
+        # save figure:
+        fig.savefig(save_name + ".pdf", bbox_inches="tight")
+    if subplot_ax is None:
+        plt.show()
     return
 
 
