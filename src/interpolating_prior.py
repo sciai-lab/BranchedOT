@@ -14,6 +14,18 @@ import time
 
 # return a topo where all terminals have degree 1 that is a beta-interpolation between the MST and OT edges.
 def interpolated_prior(bot_problem_dict, beta):
+    """
+    Compute the interpolated prior solution for the Branched Optimal Transport (BOT) problem. It interpolates betweem the MST and the OT topologies.
+
+    Args:
+        bot_problem_dict (dict): A dictionary containing problem information, including the coordinates of
+                                 sources and sinks, supply and demand arrays.
+        beta (float): Interpolation parameter.
+
+    Returns:
+        MST_joint (networkx.Graph): The interpolated prior solution.
+
+    """
     time0 = time.time()
 
     # solve OT:
